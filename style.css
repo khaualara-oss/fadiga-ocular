@@ -1,0 +1,89 @@
+/* Cores, Inputs, Botões e Feedbacks Visuais */
+
+/* Inputs e Elementos de Formulário */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #5f6368;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #1a73e8;
+}
+
+/* Botões Modernos */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1557b0;
+}
+
+/* Status das Linhas da Tabela */
+.linha-atual {
+    background-color: #fff8e1;
+    color: #b78103;
+    font-weight: bold;
+}
+
+.nota {
+    font-size: 13px;
+    color: #70757a;
+    margin-bottom: 20px;
+}
+
+.instrucoes {
+    color: #5f6368;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Alertas Finais */
+.destaque {
+    color: #1a73e8;
+    font-size: 24px;
+}
+
+#recomendacao {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.alerta-ruim {
+    background-color: #fce8e6;
+    color: #c5221f;
+    border-left: 4px solid #c5221f;
+}
+
+.alerta-bom {
+    background-color: #e6f4ea;
+    color: #137333;
+    border-left: 4px solid #137333;
+}

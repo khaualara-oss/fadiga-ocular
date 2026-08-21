@@ -1,0 +1,81 @@
+/* Estrutura Base e Layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #1a73e8;
+    margin-bottom: 8px;
+}
+
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Tabelas */
+.table-wrapper {
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Tamanhos Simulados da Tabela de Snellen */
+#snellen-box {
+    background: #fdfdfd;
+    border: 2px dashed #ccc;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+    border-radius: 8px;
+}
+
+.tamanho-linha-0 { font-size: 75px; font-weight: bold; letter-spacing: 5px; }
+.tamanho-linha-1 { font-size: 50px; font-weight: bold; letter-spacing: 5px; }
+.tamanho-linha-2 { font-size: 36px; font-weight: 500; letter-spacing: 4px; }
+.tamanho-linha-3 { font-size: 24px; font-weight: 500; letter-spacing: 3px; }
+.tamanho-linha-4 { font-size: 16px; font-weight: 400; letter-spacing: 2px; }
+.tamanho-linha-5 { font-size: 11px; font-weight: 400; letter-spacing: 1px; }
