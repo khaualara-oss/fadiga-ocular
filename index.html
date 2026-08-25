@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Saúde Visual</title>
-    <!-- Vinculando ambos os arquivos CSS solicitados -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -63,7 +62,11 @@
 
             <div class="input-group">
                 <label for="resposta-letra">Que letras você vê acima?</label>
-                <input type="text" id="resposta-letra" placeholder="Digite aqui" autocomplete="off">
+                <input type="text" 
+                       id="resposta-letra" 
+                       placeholder="Digite aqui" 
+                       autocomplete="off"
+                       onkeydown="if(event.key === 'Enter') verificarResposta()">
             </div>
             <button onclick="verificarResposta()">Enviar Resposta</button>
         </section>
@@ -119,7 +122,7 @@
                     status += " <-- Sua faixa atual";
                 }
 
-                tr.innerHTML = `<td>${idade} anos</td><td>${eficiencia.toFixed(1)}%</td><td>${status}</td>`;
+                tr.innerHTML = `<td>\( {idade} anos</td><td> \){eficiencia.toFixed(1)}%</td><td>${status}</td>`;
                 tbody.appendChild(tr);
             }
 
@@ -134,6 +137,7 @@
             proximaLinha();
         }
 
+        // ====================== TESTE DE VISÃO ======================
         function proximaLinha() {
             if (passoAtual >= linhasSnellen.length) {
                 finalizarTeste(linhasSnellen.length - 1);
@@ -141,8 +145,6 @@
             }
             const elementoLetra = document.getElementById('letra-teste');
             elementoLetra.innerText = linhasSnellen[passoAtual];
-            
-            // Altera dinamicamente as classes de tamanho definidas no CSS
             elementoLetra.className = `tamanho-linha-${passoAtual}`;
             document.getElementById('resposta-letra').value = "";
             document.getElementById('resposta-letra').focus();
