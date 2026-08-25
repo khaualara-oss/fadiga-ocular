@@ -1,81 +1,779 @@
-/* Estrutura Base e Layout */
+/* =====================================================
+   ESTRUTURA BASE E LAYOUT
+===================================================== */
+
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
+
+
+html {
+
+    min-height: 100%;
+
+}
+
 
 body {
-    background-color: #f0f2f5;
-    color: #333;
+
+    min-height: 100vh;
+
+    background-color: #f1f5f9;
+
+    color: #1f2937;
+
     padding: 20px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
 }
+
 
 header {
+
     text-align: center;
-    margin-bottom: 30px;
+
+    margin-bottom: 25px;
+
 }
+
 
 header h1 {
-    color: #1a73e8;
+
+    color: #2563eb;
+
     margin-bottom: 8px;
+
+    font-size: 30px;
+
 }
+
+
+header p {
+
+    color: #64748b;
+
+    font-size: 15px;
+
+}
+
 
 .container {
+
+    width: 100%;
+
     max-width: 650px;
+
     margin: 0 auto;
+
 }
+
 
 .card {
+
     background: #ffffff;
+
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(15, 23, 42, 0.08);
+
     margin-bottom: 20px;
+
 }
+
 
 .hidden {
+
     display: none !important;
+
 }
 
-/* Tabelas */
-.table-wrapper {
-    margin: 20px 0;
-    overflow-x: auto;
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
+.card h2 {
+
+    color: #1f2937;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+
 }
+
+
+.subtitulo {
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section-header h2 {
+
+    margin-bottom: 4px;
+
+}
+
+
+.section-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #eff6ff;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+
+}
+
+
+/* =====================================================
+   BOAS-VINDAS
+===================================================== */
+
+.boas-vindas {
+
+    margin-bottom: 20px;
+
+    padding: 13px 15px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   AJUDA DOS CAMPOS
+===================================================== */
+
+.campo-ajuda {
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =====================================================
+   ERROS
+===================================================== */
+
+.error-message {
+
+    display: none;
+
+    margin-bottom: 18px;
+
+    padding: 13px 15px;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+
+    border-left: 4px solid #dc2626;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+}
+
+
+.error-message.show {
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   TABELAS
+===================================================== */
+
+.table-wrapper {
+
+    margin: 20px 0;
+
+    overflow-x: auto;
+
+}
+
 
 table {
+
     width: 100%;
+
     border-collapse: collapse;
+
     text-align: left;
+
 }
 
-th, td {
+
+th,
+td {
+
     padding: 12px;
-    border-bottom: 1px solid #e0e0e0;
+
+    border-bottom:
+        1px solid #e2e8f0;
+
 }
+
 
 th {
-    background-color: #f8f9fa;
+
+    background-color: #f8fafc;
+
     font-weight: 600;
+
 }
 
-/* Tamanhos Simulados da Tabela de Snellen */
+
+/* =====================================================
+   TAMANHOS DO TESTE
+===================================================== */
+
 #snellen-box {
-    background: #fdfdfd;
-    border: 2px dashed #ccc;
-    height: 180px;
+
+    width: 100%;
+
+    height: 190px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     margin: 25px 0;
-    border-radius: 8px;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
 }
 
-.tamanho-linha-0 { font-size: 75px; font-weight: bold; letter-spacing: 5px; }
-.tamanho-linha-1 { font-size: 50px; font-weight: bold; letter-spacing: 5px; }
-.tamanho-linha-2 { font-size: 36px; font-weight: 500; letter-spacing: 4px; }
-.tamanho-linha-3 { font-size: 24px; font-weight: 500; letter-spacing: 3px; }
-.tamanho-linha-4 { font-size: 16px; font-weight: 400; letter-spacing: 2px; }
-.tamanho-linha-5 { font-size: 11px; font-weight: 400; letter-spacing: 1px; }
+
+.tamanho-linha-0 {
+
+    font-size: 75px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+}
+
+
+.tamanho-linha-1 {
+
+    font-size: 50px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+}
+
+
+.tamanho-linha-2 {
+
+    font-size: 36px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+}
+
+
+.tamanho-linha-3 {
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+}
+
+
+.tamanho-linha-4 {
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+}
+
+
+.tamanho-linha-5 {
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   RESULTADO FINAL
+===================================================== */
+
+.placar-final {
+
+    text-align: center;
+
+}
+
+
+.resultado-icone {
+
+    font-size: 32px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.resultado-label {
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.resultado-linhas {
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    margin-top: 6px;
+
+}
+
+
+.resultado-aviso {
+
+    margin: 15px 0;
+
+    padding: 12px 14px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   DICA ENTER
+===================================================== */
+
+.dica-enter {
+
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 10px;
+
+    }
+
+
+    header {
+
+        margin-bottom: 18px;
+
+    }
+
+
+    header h1 {
+
+        font-size: 24px;
+
+    }
+
+
+    header p {
+
+        font-size: 13px;
+
+    }
+
+
+    .card {
+
+        padding: 20px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .card h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .section-header {
+
+        gap: 10px;
+
+    }
+
+
+    .section-icon {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 19px;
+
+    }
+
+
+    #snellen-box {
+
+        height: 165px;
+
+        margin: 20px 0;
+
+    }
+
+
+    /*
+       Redução específica para celulares.
+       Evita que as letras ultrapassem a tela.
+    */
+
+    .tamanho-linha-0 {
+
+        font-size: 52px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .tamanho-linha-1 {
+
+        font-size: 37px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .tamanho-linha-2 {
+
+        font-size: 28px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .tamanho-linha-3 {
+
+        font-size: 20px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .tamanho-linha-4 {
+
+        font-size: 14px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .tamanho-linha-5 {
+
+        font-size: 10px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    th,
+    td {
+
+        padding: 10px 8px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES MUITO PEQUENOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    body {
+
+        padding: 7px;
+
+    }
+
+
+    .card {
+
+        padding: 16px;
+
+    }
+
+
+    header h1 {
+
+        font-size: 21px;
+
+    }
+
+
+    .menu-btn {
+
+        font-size: 11px;
+
+    }
+
+
+    #snellen-box {
+
+        height: 150px;
+
+    }
+
+
+    .tamanho-linha-0 {
+
+        font-size: 46px;
+
+    }
+
+
+    .tamanho-linha-1 {
+
+        font-size: 33px;
+
+    }
+
+
+    .tamanho-linha-2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .tamanho-linha-3 {
+
+        font-size: 18px;
+
+    }
+
+
+    .tamanho-linha-4 {
+
+        font-size: 13px;
+
+    }
+
+
+    .tamanho-linha-5 {
+
+        font-size: 9px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MODO ESCURO — AJUSTES DO INDEX
+===================================================== */
+
+body.dark-mode {
+
+    background-color: #0f172a;
+
+}
+
+
+body.dark-mode .section-icon {
+
+    background: #172554;
+
+}
+
+
+body.dark-mode .boas-vindas {
+
+    background: #172554;
+
+    color: #93c5fd;
+
+}
+
+
+body.dark-mode .campo-ajuda {
+
+    color: #64748b;
+
+}
+
+
+body.dark-mode .error-message {
+
+    background: #450a0a;
+
+    color: #fecaca;
+
+    border-color: #7f1d1d;
+
+}
+
+
+body.dark-mode .resultado-aviso {
+
+    background: #172033;
+
+    color: #94a3b8;
+
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.card:not(.hidden) {
+
+    animation:
+        aparecer 0.25s ease;
+
+    }
