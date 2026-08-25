@@ -1,117 +1,128 @@
 /* =====================================================
    INDEX.CSS
-   AJUSTES COMPLEMENTARES
+   TESTE DE ACUIDADE VISUAL
 ===================================================== */
 
 
-/* Evita que elementos ultrapassem a tela */
+/* =====================================================
+   TAMANHOS DAS LINHAS
+===================================================== */
 
-img,
-video,
-canvas {
+.tamanho-linha-0 {
+    font-size: 75px;
 
-    max-width: 100%;
+    font-weight: 800;
 
+    letter-spacing: 8px;
+
+    color: #111827;
+}
+
+.tamanho-linha-1 {
+    font-size: 52px;
+
+    font-weight: 800;
+
+    letter-spacing: 7px;
+
+    color: #111827;
+}
+
+.tamanho-linha-2 {
+    font-size: 38px;
+
+    font-weight: 700;
+
+    letter-spacing: 6px;
+
+    color: #111827;
+}
+
+.tamanho-linha-3 {
+    font-size: 27px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    color: #111827;
+}
+
+.tamanho-linha-4 {
+    font-size: 18px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #111827;
+}
+
+.tamanho-linha-5 {
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #111827;
 }
 
 
-/* Melhora o toque no celular */
+/* =====================================================
+   MODO ESCURO
+===================================================== */
 
-button,
-input {
-
-    -webkit-tap-highlight-color:
-        transparent;
-
+body.dark-mode .tamanho-linha-0,
+body.dark-mode .tamanho-linha-1,
+body.dark-mode .tamanho-linha-2,
+body.dark-mode .tamanho-linha-3,
+body.dark-mode .tamanho-linha-4,
+body.dark-mode .tamanho-linha-5 {
+    color: #f8fafc;
 }
 
 
-/* Remove aparência padrão de número */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-input[type="number"] {
+@media (max-width: 600px) {
 
-    appearance:
-        textfield;
+    .tamanho-linha-0 {
+        font-size: 52px;
 
-    -moz-appearance:
-        textfield;
-
-}
-
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-
-    -webkit-appearance:
-        none;
-
-    margin:
-        0;
-
-}
-
-
-/* Seleção de texto */
-
-::selection {
-
-    background:
-        #2563eb;
-
-    color:
-        white;
-
-}
-
-
-/* Foco acessível */
-
-button:focus-visible,
-input:focus-visible {
-
-    outline:
-        3px solid
-        rgba(37,99,235,.35);
-
-    outline-offset:
-        2px;
-
-}
-
-
-/* Ajuste para telas muito pequenas */
-
-@media (max-width: 380px) {
-
-    body {
-
-        padding:
-            7px;
-
+        letter-spacing: 6px;
     }
 
+    .tamanho-linha-1 {
+        font-size: 38px;
 
-    .card {
-
-        padding:
-            16px;
-
+        letter-spacing: 5px;
     }
 
+    .tamanho-linha-2 {
+        font-size: 28px;
 
-    .top-menu {
-
-        gap:
-            3px;
-
+        letter-spacing: 4px;
     }
 
+    .tamanho-linha-3 {
+        font-size: 20px;
 
-    .menu-btn {
+        letter-spacing: 3px;
+    }
 
-        font-size:
-            11px;
+    .tamanho-linha-4 {
+        font-size: 14px;
 
+        letter-spacing: 2px;
+    }
+
+    .tamanho-linha-5 {
+        font-size: 9px;
+
+        letter-spacing: 1px;
     }
 
 }
