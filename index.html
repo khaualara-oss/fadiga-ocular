@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Fadiga Visual</title>
+    <title>Minha Primeira Página</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,133 +20,36 @@
             border-radius: 8px;
         }
         main {
-            margin-top: 40px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 15px 0;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
+            margin-top: 20px;
         }
         button {
             background-color: #007acc;
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
         }
         button:hover {
             background-color: #005999;
-        }
-        .dica {
-            font-size: 13px;
-            color: #777;
-            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Teste: Impacto da Epidemia Visual</h1>
+        <h1>Bem-vindo ao Meu Site!</h1>
     </header>
 
-    <main id="areaTeste">
-        <p>Digite seu nome para iniciar e <strong>pressione Enter</strong>.</p>
-        <input type="text" id="inputAtual" placeholder="Seu nome aqui..." autofocus>
-        <br>
-        <button onclick="avancar()">Começar</button>
-        <p class="dica">(Você pode usar a tecla Enter para avançar)</p>
+    <main>
+        <p>Este é um modelo básico de página HTML criado para o Visual Studio Code.</p>
+        <button onclick="mensagem()">Clique aqui</button>
     </main>
 
     <script>
-        let passo = 0;
-        let dadosUsuario = { nome: '', horasTela: '', cansaco: '' };
-
-        // Escuta a tecla Enter em qualquer lugar da tela
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                avancar();
-            }
-        });
-
-        function avancar() {
-            const inputAtual = document.getElementById('inputAtual');
-            const areaTeste = document.getElementById('areaTeste');
-
-            // Verifica se o campo está vazio
-            if (inputAtual && inputAtual.value.trim() === '') {
-                alert("Por favor, preencha o campo antes de avançar.");
-                inputAtual.focus();
-                return;
-            }
-
-            // Etapa 1: Pega o nome e pergunta sobre horas de tela
-            if (passo === 0) {
-                dadosUsuario.nome = inputAtual.value;
-                areaTeste.innerHTML = `
-                    <h2>Olá, ${dadosUsuario.nome}!</h2>
-                    <p>Quantas horas por dia, em média, você passa olhando para telas (celular, PC, TV)?</p>
-                    <input type="number" id="inputAtual" placeholder="Ex: 8" autofocus>
-                    <br>
-                    <button onclick="avancar()">Avançar</button>
-                    <p class="dica">(Pressione Enter para avançar)</p>
-                `;
-                passo++;
-            } 
-            // Etapa 2: Pega as horas e pergunta sobre cansaço
-            else if (passo === 1) {
-                dadosUsuario.horasTela = inputAtual.value;
-                areaTeste.innerHTML = `
-                    <h2>Última pergunta:</h2>
-                    <p>Você costuma sentir vista cansada, ressecada ou dor de cabeça no fim do dia?</p>
-                    <input type="text" id="inputAtual" placeholder="Responda Sim ou Não" autofocus>
-                    <br>
-                    <button onclick="avancar()">Finalizar</button>
-                    <p class="dica">(Pressione Enter para concluir)</p>
-                `;
-                passo++;
-            } 
-            // Etapa 3: Pega o sintoma, salva e finaliza
-            else if (passo === 2) {
-                dadosUsuario.cansaco = inputAtual.value;
-                
-                salvarAcesso(dadosUsuario);
-                
-                areaTeste.innerHTML = `
-                    <h2>Teste Concluído!</h2>
-                    <p>Obrigado por participar, ${dadosUsuario.nome}.</p>
-                    <p>Seus dados sobre a exposição visual foram registrados.</p>
-                    <p style="color: #007acc;"><strong>Dica:</strong> Lembre-se da regra 20-20-20. A cada 20 minutos, olhe para algo a 20 pés (6 metros) de distância por 20 segundos para descansar a visão!</p>
-                `;
-                passo++;
-            }
-        }
-
-        function salvarAcesso(dados) {
-            // Busca os dados antigos ou cria uma lista vazia
-            let acessos = JSON.parse(localStorage.getItem('redeAcessosVisao')) || [];
-            
-            // Adiciona a data e o novo registro
-            dados.dataHora = new Date().toLocaleString('pt-BR');
-            acessos.push(dados);
-            
-            // Salva de volta no navegador
-            localStorage.setItem('redeAcessosVisao', JSON.stringify(acessos));
-            console.log("Registros salvos até o momento:", acessos);
+        function mensagem() {
+            alert('Olá! Seu código HTML e JavaScript está funcionando perfeitamente.');
         }
     </script>
 
