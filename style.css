@@ -2,11 +2,8 @@
    ESTILO MODERNO — SAÚDE VISUAL
 ===================================================== */
 
-/* =========================
-   VARIÁVEIS
-========================= */
-
 :root {
+
     --azul: #2563eb;
     --azul-escuro: #1d4ed8;
     --azul-claro: #eff6ff;
@@ -29,93 +26,175 @@
     --sombra:
         0 10px 30px rgba(15, 23, 42, 0.08);
 
-    --sombra-hover:
-        0 14px 35px rgba(15, 23, 42, 0.12);
 }
 
 
-/* =========================
+/* =====================================================
+   BASE
+===================================================== */
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.top-menu {
+
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+}
+
+.menu-btn {
+
+    width: auto;
+
+    min-width: 120px;
+
+    padding: 10px 16px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    box-shadow: none;
+
+    font-size: 14px;
+
+}
+
+.menu-btn:hover {
+
+    background: #f8fafc;
+
+    color: var(--azul);
+
+    border-color: #bfdbfe;
+
+    transform: translateY(-1px);
+
+}
+
+.menu-btn.ativo {
+
+    background: var(--azul-claro);
+
+    color: var(--azul);
+
+    border-color: #bfdbfe;
+
+}
+
+
+/* =====================================================
    INPUTS
-========================= */
+===================================================== */
 
 .input-group {
+
     margin-bottom: 22px;
+
     display: flex;
+
     flex-direction: column;
+
 }
 
 .input-group label {
+
     margin-bottom: 8px;
+
     font-size: 14px;
+
     font-weight: 600;
+
     color: var(--texto);
+
 }
 
 input[type="text"],
 input[type="number"] {
+
     width: 100%;
+
     padding: 13px 15px;
 
     background: var(--fundo-input);
 
     border: 1px solid var(--borda);
+
     border-radius: 10px;
 
     font-size: 16px;
+
     color: var(--texto);
 
     outline: none;
 
     transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.2s ease,
-        transform 0.2s ease;
-}
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background-color 0.2s;
 
-input[type="text"]::placeholder,
-input[type="number"]::placeholder {
-    color: #94a3b8;
-}
-
-input[type="text"]:hover,
-input[type="number"]:hover {
-    border-color: #cbd5e1;
-    background: #ffffff;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
+
     background: #ffffff;
 
     border-color: var(--azul);
 
     box-shadow:
         0 0 0 4px rgba(37, 99, 235, 0.12);
+
 }
 
 
-/* =========================
+/* =====================================================
    BOTÕES
-========================= */
+===================================================== */
 
 button {
+
     width: 100%;
 
     padding: 13px 18px;
 
-    background: linear-gradient(
-        135deg,
-        var(--azul),
-        var(--azul-escuro)
-    );
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul),
+            var(--azul-escuro)
+        );
 
     color: #ffffff;
 
     border: none;
+
     border-radius: 10px;
 
     font-size: 16px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -124,58 +203,60 @@ button {
         0 5px 15px rgba(37, 99, 235, 0.22);
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        filter 0.2s ease;
+        transform 0.2s,
+        box-shadow 0.2s,
+        filter 0.2s;
+
 }
 
 button:hover {
+
     filter: brightness(1.05);
 
     transform: translateY(-2px);
 
     box-shadow:
         0 8px 20px rgba(37, 99, 235, 0.28);
+
 }
 
 button:active {
+
     transform: translateY(0);
 
-    box-shadow:
-        0 4px 10px rgba(37, 99, 235, 0.2);
-}
-
-button:focus-visible {
-    outline: none;
-
-    box-shadow:
-        0 0 0 4px rgba(37, 99, 235, 0.18),
-        0 6px 18px rgba(37, 99, 235, 0.25);
 }
 
 
-/* =========================
+/* =====================================================
    TABELA
-========================= */
+===================================================== */
 
 .table-wrapper {
+
     width: 100%;
+
     overflow-x: auto;
 
     border: 1px solid var(--borda);
+
     border-radius: 12px;
 
     background: #ffffff;
+
 }
 
 table {
+
     width: 100%;
+
     border-collapse: collapse;
 
     font-size: 14px;
+
 }
 
 th {
+
     padding: 14px;
 
     background: #f8fafc;
@@ -183,80 +264,92 @@ th {
     color: #475569;
 
     font-size: 13px;
+
     font-weight: 700;
 
     text-transform: uppercase;
-    letter-spacing: 0.3px;
 
-    border-bottom: 1px solid var(--borda);
+    border-bottom:
+        1px solid var(--borda);
+
 }
 
 td {
+
     padding: 14px;
 
     color: var(--texto);
 
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom:
+        1px solid #f1f5f9;
 
-    transition: background-color 0.2s ease;
-}
-
-tr:last-child td {
-    border-bottom: none;
 }
 
 tbody tr:hover td {
+
     background: #f8fafc;
+
 }
 
 
-/* =========================
+/* =====================================================
    LINHA ATUAL
-========================= */
+===================================================== */
 
 .linha-atual {
+
     background: var(--amarelo-fundo);
 
     color: var(--amarelo);
 
     font-weight: 700;
 
-    border-left: 4px solid #f59e0b;
+    border-left:
+        4px solid #f59e0b;
+
 }
 
 .linha-atual td {
+
     color: var(--amarelo);
+
 }
 
 
-/* =========================
+/* =====================================================
    NOTA
-========================= */
+===================================================== */
 
 .nota {
+
     margin-top: 18px;
+
     margin-bottom: 20px;
 
     padding: 13px 15px;
 
     background: #f8fafc;
 
-    border-left: 4px solid #94a3b8;
+    border-left:
+        4px solid #94a3b8;
 
     border-radius: 8px;
 
     font-size: 13px;
+
     line-height: 1.5;
 
     color: var(--texto-secundario);
+
 }
 
 
-/* =========================
+/* =====================================================
    INSTRUÇÕES
-========================= */
+===================================================== */
 
 .instrucoes {
+
     margin: 15px 0;
 
     padding: 14px 16px;
@@ -272,24 +365,32 @@ tbody tr:hover td {
     font-size: 14px;
 
     line-height: 1.6;
+
 }
 
 .instrucoes strong {
+
     color: #1e40af;
+
 }
 
 
-/* =========================
+/* =====================================================
    PROGRESSO
-========================= */
+===================================================== */
 
 .progress-indicator {
+
     color: var(--texto-secundario);
+
     font-size: 14px;
+
 }
 
 .progress-bar {
+
     width: 100%;
+
     height: 8px;
 
     margin-top: 10px;
@@ -299,28 +400,36 @@ tbody tr:hover td {
     border-radius: 999px;
 
     overflow: hidden;
+
 }
 
 .progress-fill {
+
     height: 100%;
 
-    background: linear-gradient(
-        90deg,
-        #2563eb,
-        #60a5fa
-    );
+    width: 0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa
+        );
 
     border-radius: 999px;
 
-    transition: width 0.35s ease;
+    transition:
+        width 0.35s ease;
+
 }
 
 
-/* =========================
-   ÁREA DO TESTE
-========================= */
+/* =====================================================
+   SNELLEN
+===================================================== */
 
 #snellen-box {
+
     background:
         linear-gradient(
             135deg,
@@ -333,35 +442,43 @@ tbody tr:hover td {
     border-radius: 14px;
 
     box-shadow:
-        inset 0 0 20px rgba(15, 23, 42, 0.03);
+        inset 0 0 20px
+        rgba(15, 23, 42, 0.03);
 
     position: relative;
+
 }
 
 #snellen-box::before {
+
     content: "TESTE DE ACUIDADE";
 
     position: absolute;
 
     top: 10px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     font-size: 9px;
+
     font-weight: 700;
 
     letter-spacing: 1.5px;
 
     color: #94a3b8;
+
 }
 
 
-/* =========================
+/* =====================================================
    RESULTADO
-========================= */
+===================================================== */
 
 #placar-final {
+
     padding: 22px;
 
     background: var(--azul-claro);
@@ -371,27 +488,30 @@ tbody tr:hover td {
     border-radius: 14px;
 
     text-align: center;
-}
 
-#placar-final h3 {
-    color: var(--texto);
 }
 
 .destaque {
+
     color: var(--azul);
 
-    font-size: 26px;
+    font-size: 30px;
+
     font-weight: 800;
+
 }
 
 
-/* =========================
+/* =====================================================
    RECOMENDAÇÃO
-========================= */
+===================================================== */
 
 #recomendacao {
+
     display: flex;
+
     align-items: flex-start;
+
     gap: 12px;
 
     margin: 20px 0;
@@ -404,109 +524,487 @@ tbody tr:hover td {
 
     line-height: 1.5;
 
-    box-shadow:
-        0 3px 10px rgba(15, 23, 42, 0.04);
-}
-
-#recomendacao .alert-icon {
-    font-size: 20px;
-    flex-shrink: 0;
 }
 
 
-/* =========================
-   ALERTA RUIM
-========================= */
+/* =====================================================
+   ALERTAS
+===================================================== */
 
 .alerta-ruim {
+
     background: var(--vermelho-fundo);
 
     color: #991b1b;
 
     border: 1px solid #fecaca;
 
-    border-left: 5px solid var(--vermelho);
+    border-left:
+        5px solid var(--vermelho);
+
 }
 
-
-/* =========================
-   ALERTA BOM
-========================= */
-
 .alerta-bom {
+
     background: var(--verde-fundo);
 
     color: #166534;
 
     border: 1px solid #bbf7d0;
 
-    border-left: 5px solid var(--verde);
+    border-left:
+        5px solid var(--verde);
+
 }
 
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
+/* =====================================================
+   HISTÓRICO
+===================================================== */
+
+.historico-vazio {
+
+    text-align: center;
+
+    padding: 40px 15px;
+
+    color: var(--texto-secundario);
+
+}
+
+.historico-vazio .icone {
+
+    font-size: 44px;
+
+    margin-bottom: 12px;
+
+}
+
+.historico-vazio p {
+
+    margin-top: 8px;
+
+}
+
+
+.teste-historico {
+
+    background: #f8fafc;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 14px;
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+}
+
+.teste-historico:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--sombra);
+
+}
+
+.teste-data {
+
+    color: var(--texto-secundario);
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+
+}
+
+.teste-resultado {
+
+    color: var(--azul);
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    margin-bottom: 6px;
+
+}
+
+.teste-info {
+
+    color: #475569;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+.teste-info span {
+
+    margin: 0 5px;
+
+}
+
+
+.btn-apagar-historico {
+
+    margin-top: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+}
+
+
+/* =====================================================
+   MODO ESCURO
+===================================================== */
+
+body.dark-mode {
+
+    --texto: #e5e7eb;
+
+    --texto-secundario: #94a3b8;
+
+    --borda: #334155;
+
+    --fundo-input: #0f172a;
+
+    --azul-claro: #172554;
+
+    background: #0f172a;
+
+    color: #e5e7eb;
+
+}
+
+
+body.dark-mode .card {
+
+    background: #1e293b;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.28);
+
+}
+
+
+body.dark-mode header h1 {
+
+    color: #60a5fa;
+
+}
+
+
+body.dark-mode header p {
+
+    color: #94a3b8;
+
+}
+
+
+body.dark-mode h2 {
+
+    color: #f1f5f9;
+
+}
+
+
+body.dark-mode .subtitulo {
+
+    color: #94a3b8;
+
+}
+
+
+body.dark-mode .input-group label {
+
+    color: #cbd5e1;
+
+}
+
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"] {
+
+    background: #0f172a;
+
+    color: #f1f5f9;
+
+    border-color: #334155;
+
+}
+
+
+body.dark-mode input[type="text"]:focus,
+body.dark-mode input[type="number"]:focus {
+
+    border-color: #60a5fa;
+
+    background: #0f172a;
+
+}
+
+
+body.dark-mode .menu-btn {
+
+    background: #1e293b;
+
+    color: #cbd5e1;
+
+    border-color: #334155;
+
+}
+
+
+body.dark-mode .menu-btn:hover {
+
+    background: #273449;
+
+    color: #60a5fa;
+
+}
+
+
+body.dark-mode .menu-btn.ativo {
+
+    background: #172554;
+
+    color: #60a5fa;
+
+    border-color: #1d4ed8;
+
+}
+
+
+body.dark-mode .table-wrapper {
+
+    background: #1e293b;
+
+    border-color: #334155;
+
+}
+
+
+body.dark-mode th {
+
+    background: #273449;
+
+    color: #cbd5e1;
+
+    border-color: #334155;
+
+}
+
+
+body.dark-mode td {
+
+    color: #e2e8f0;
+
+    border-color: #334155;
+
+}
+
+
+body.dark-mode tbody tr:hover td {
+
+    background: #273449;
+
+}
+
+
+body.dark-mode .linha-atual {
+
+    background: #422006;
+
+}
+
+
+body.dark-mode .linha-atual td {
+
+    color: #fbbf24;
+
+}
+
+
+body.dark-mode .nota {
+
+    background: #172033;
+
+    color: #94a3b8;
+
+}
+
+
+body.dark-mode .instrucoes {
+
+    background: #172554;
+
+    color: #cbd5e1;
+
+    border-color: #1e40af;
+
+}
+
+
+body.dark-mode #snellen-box {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #e2e8f0
+        );
+
+    color: #111827;
+
+}
+
+
+body.dark-mode #placar-final {
+
+    background: #172554;
+
+    border-color: #1e40af;
+
+}
+
+
+body.dark-mode .destaque {
+
+    color: #60a5fa;
+
+}
+
+
+body.dark-mode .teste-historico {
+
+    background: #172033;
+
+    border-color: #334155;
+
+}
+
+
+body.dark-mode .teste-info {
+
+    color: #cbd5e1;
+
+}
+
+
+body.dark-mode .teste-data {
+
+    color: #94a3b8;
+
+}
+
+
+body.dark-mode .teste-resultado {
+
+    color: #60a5fa;
+
+}
+
+
+body.dark-mode .alerta-ruim {
+
+    background: #450a0a;
+
+    color: #fecaca;
+
+    border-color: #7f1d1d;
+
+}
+
+
+body.dark-mode .alerta-bom {
+
+    background: #052e16;
+
+    color: #bbf7d0;
+
+    border-color: #166534;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 600px) {
 
-    .input-group {
+    .top-menu {
+
+        gap: 6px;
+
         margin-bottom: 18px;
+
     }
 
-    input[type="text"],
-    input[type="number"] {
-        padding: 13px;
 
-        min-height: 46px;
+    .menu-btn {
 
-        font-size: 16px;
-    }
+        flex: 1;
 
-    button {
-        min-height: 48px;
+        min-width: 0;
 
-        padding: 13px;
+        padding: 10px 6px;
 
-        font-size: 15px;
-    }
-
-    th,
-    td {
-        padding: 11px 9px;
-    }
-
-    .nota {
         font-size: 12px;
+
     }
 
-    .instrucoes {
-        font-size: 13px;
 
-        padding: 13px;
+    .teste-historico {
+
+        padding: 15px;
+
     }
 
-    #recomendacao {
-        font-size: 13px;
+
+    .teste-resultado {
+
+        font-size: 19px;
+
     }
 
-    .destaque {
-        font-size: 23px;
+
+    .teste-info {
+
+        font-size: 12px;
+
     }
+
 }
 
 
-/* =========================
+/* =====================================================
    ACESSIBILIDADE
-========================= */
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
+
         transition: none !important;
+
         animation: none !important;
-    }
 
     }
+
+}
