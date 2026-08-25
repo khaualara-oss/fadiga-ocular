@@ -2,1648 +2,944 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Simulador educativo de saúde visual e teste de acuidade visual."
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Simulador de Saúde Visual</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="index.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
-
 
 <body>
 
 <header>
-
-    <h1>
-        👁️ Simulador de Saúde Visual
-    </h1>
-
-    <p>
-        Monitore uma projeção educativa e faça um teste rápido de acuidade.
-    </p>
-
+    <h1>Simulador de Saúde Visual</h1>
+    <p>Monitore a progressão visual estimada e teste sua acuidade.</p>
 </header>
-
-
-<!-- =====================================================
-     MENU
-===================================================== -->
-
-<nav
-    class="top-menu"
-    aria-label="Menu principal"
->
-
-    <button
-        type="button"
-        class="menu-btn ativo"
-        id="menu-inicio"
-    >
-        🏠 Início
-    </button>
-
-    <button
-        type="button"
-        class="menu-btn"
-        id="menu-historico"
-    >
-        📊 Meus testes
-    </button>
-
-    <button
-        type="button"
-        class="menu-btn"
-        id="menu-tema"
-    >
-        🌙 Escuro
-    </button>
-
-</nav>
-
 
 <main class="container">
 
+    <!-- =========================
+         SEÇÃO 1
+    ========================== -->
 
-<!-- =====================================================
-     SEÇÃO 1 — DADOS
-===================================================== -->
+    <section id="form-section" class="card">
 
-<section
-    id="form-section"
-    class="card"
->
+        <h2>Insira seus Dados</h2>
 
-    <h2>
-        Insira seus dados
-    </h2>
+        <div class="error-message" id="error-message"></div>
 
-    <p class="subtitulo">
-        Preencha os dados abaixo para iniciar.
-    </p>
+        <div class="input-group">
 
+            <label for="nome">Nome:</label>
 
-    <div
-        class="error-message"
-        id="error-message"
-        role="alert"
-    ></div>
-
-
-    <div class="input-group">
-
-        <label for="nome">
-            Nome
-        </label>
-
-        <input
-            type="text"
-            id="nome"
-            placeholder="Digite seu nome"
-            aria-label="Seu nome"
-            autocomplete="name"
-        >
-
-    </div>
-
-
-    <div class="input-group">
-
-        <label for="idade">
-            Idade
-        </label>
-
-        <input
-            type="number"
-            id="idade"
-            min="1"
-            max="120"
-            placeholder="Ex: 17"
-            aria-label="Sua idade"
-            autocomplete="off"
-        >
-
-        <small class="campo-ajuda">
-            Entre 1 e 120 anos.
-        </small>
-
-    </div>
-
-
-    <button
-        type="button"
-        id="btn-simular"
-    >
-        Simular Progressão
-    </button>
-
-</section>
-
-
-
-<!-- =====================================================
-     SEÇÃO 2 — PROJEÇÃO
-===================================================== -->
-
-<section
-    id="resultado-simulacao"
-    class="card hidden"
->
-
-    <div class="section-header">
-
-        <span class="section-icon">
-            📈
-        </span>
-
-        <div>
-
-            <h2>
-                Progressão Visual Estimada
-            </h2>
-
-            <p class="subtitulo">
-                Modelo matemático exclusivamente educativo.
-            </p>
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                aria-label="Seu nome completo"
+                autocomplete="name"
+            >
 
         </div>
 
-    </div>
+        <div class="input-group">
 
+            <label for="idade">Idade:</label>
 
-    <p
-        id="boas-vindas"
-        class="boas-vindas"
-    ></p>
+            <input
+                type="number"
+                id="idade"
+                min="1"
+                max="120"
+                placeholder="Ex: 35"
+                aria-label="Sua idade em anos"
+                autocomplete="off"
+            >
 
-
-    <div class="table-wrapper">
-
-        <table id="tabela-anos">
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        Idade
-                    </th>
-
-                    <th>
-                        Eficiência
-                    </th>
-
-                    <th>
-                        Status
-                    </th>
-
-                </tr>
-
-            </thead>
-
-            <tbody></tbody>
-
-        </table>
-
-    </div>
-
-
-    <div class="nota">
-
-        <strong>
-            ⚠️ Importante
-        </strong>
-
-        <br>
-
-        Este é um modelo matemático estático e educativo.
-        Fatores genéticos, estilo de vida e condições médicas
-        podem alterar significativamente a visão.
-        Este simulador não realiza diagnóstico médico.
-
-    </div>
-
-
-    <button
-        type="button"
-        id="btn-teste"
-    >
-        👁️ Fazer Teste de Visão
-    </button>
-
-</section>
-
-
-
-<!-- =====================================================
-     SEÇÃO 3 — TESTE
-===================================================== -->
-
-<section
-    id="teste-section"
-    class="card hidden"
->
-
-    <div class="section-header">
-
-        <span class="section-icon">
-            👁️
-        </span>
-
-        <div>
-
-            <h2>
-                Teste de Acuidade Visual
-            </h2>
-
-            <p class="subtitulo">
-                Identifique as letras apresentadas.
-            </p>
+            <small style="color:#70757a; font-size:12px; margin-top:4px;">
+                Entre 1 e 120 anos
+            </small>
 
         </div>
 
-    </div>
+        <button
+            type="button"
+            id="btn-simular"
+            aria-label="Iniciar simulação de progressão visual"
+        >
+            Simular Progressão
+        </button>
+
+    </section>
 
 
-    <div class="progress-indicator">
+    <!-- =========================
+         SEÇÃO 2
+    ========================== -->
 
-        <strong id="progress-text">
-            Linha 1 de 6
-        </strong>
+    <section
+        id="resultado-simulacao"
+        class="card hidden"
+        role="region"
+        aria-label="Resultado da simulação de progressão visual"
+    >
 
-        <div class="progress-bar">
+        <h2>Progressão de Perda Visual Estimada</h2>
+
+        <p
+            id="boas-vindas"
+            style="margin-bottom:20px; font-weight:500; color:#1a73e8;"
+        ></p>
+
+        <div class="table-wrapper">
+
+            <table id="tabela-anos">
+
+                <thead>
+
+                    <tr>
+                        <th>Idade</th>
+                        <th>Eficiência Visual Est.</th>
+                        <th>Status Comum</th>
+                    </tr>
+
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+
+        </div>
+
+        <p class="nota">
+
+            <strong>⚠️ Nota:</strong>
+
+            Este é um modelo matemático estático e educativo.
+            Fatores genéticos, estilo de vida e condições médicas
+            podem alterar significativamente estes dados.
+            Consulte um oftalmologista para uma avaliação precisa.
+
+        </p>
+
+        <button
+            type="button"
+            id="btn-teste"
+        >
+            Ir para Teste de Visão
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         SEÇÃO 3
+    ========================== -->
+
+    <section
+        id="teste-section"
+        class="card hidden"
+        role="region"
+        aria-label="Teste de acuidade visual"
+    >
+
+        <h2>Teste de Acuidade Visual</h2>
+
+        <div class="progress-indicator">
+
+            <span id="progress-text">
+                Linha 1 de 6
+            </span>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progress-fill"
+                    style="width:0%"
+                ></div>
+
+            </div>
+
+        </div>
+
+        <p class="instrucoes">
+
+            📏 <strong>Instruções:</strong>
+
+            Afaste-se a aproximadamente
+            <strong>1 metro</strong> da tela.
+
+            Se usa óculos, mantenha-os.
+            Digite as letras e números que conseguir ler.
+
+        </p>
+
+        <div
+            id="snellen-box"
+            role="img"
+            aria-label="Linha de teste de visão"
+        >
 
             <div
-                class="progress-fill"
-                id="progress-fill"
+                id="letra-teste"
+                aria-live="polite"
             ></div>
 
         </div>
 
-    </div>
+        <div class="input-group">
+
+            <label for="resposta-letra">
+                Que letras e números você vê acima?
+            </label>
+
+            <input
+                type="text"
+                id="resposta-letra"
+                placeholder="Digite aqui"
+                autocomplete="off"
+                aria-label="Digite as letras e números que você consegue ler"
+            >
+
+        </div>
+
+        <button
+            type="button"
+            id="btn-responder"
+        >
+            Enviar Resposta
+        </button>
+
+        <p
+            style="
+                font-size:12px;
+                color:#70757a;
+                margin-top:15px;
+                text-align:center;
+            "
+        >
+            💡
+            <em>
+                Se não conseguir ler, deixe o campo vazio
+                e clique em "Enviar".
+            </em>
+        </p>
+
+    </section>
 
 
-    <div class="instrucoes">
+    <!-- =========================
+         SEÇÃO 4
+    ========================== -->
 
-        📏 <strong>Instruções:</strong>
-
-        <br>
-
-        Afaste-se aproximadamente
-        <strong>1 metro</strong> da tela.
-
-        <br>
-
-        Se usa óculos, mantenha-os durante o teste.
-
-        <br>
-
-        Digite exatamente as letras que conseguir identificar.
-
-    </div>
-
-
-    <div
-        id="snellen-box"
-        role="img"
-        aria-label="Letras para teste de acuidade visual"
+    <section
+        id="resultado-final"
+        class="card hidden"
+        role="region"
+        aria-label="Resultado final do teste"
     >
+
+        <h2>Resultado do Seu Teste</h2>
 
         <div
-            id="letra-teste"
-            aria-live="polite"
+            id="placar-final"
+            style="margin:20px 0;"
         ></div>
 
-    </div>
+        <div id="recomendacao"></div>
 
-
-    <div class="input-group">
-
-        <label for="resposta-letra">
-
-            Que letras você vê?
-
-        </label>
-
-        <input
-            type="text"
-            id="resposta-letra"
-            placeholder="Digite as letras"
-            autocomplete="off"
-            autocapitalize="characters"
-            spellcheck="false"
+        <button
+            type="button"
+            id="btn-reiniciar"
         >
+            Reiniciar Simulador
+        </button>
 
-    </div>
-
-
-    <button
-        type="button"
-        id="btn-responder"
-    >
-        Enviar Resposta
-    </button>
-
-
-    <p class="dica-enter">
-
-        ⌨️ Pressione <strong>Enter</strong> para enviar.
-
-    </p>
-
-</section>
-
-
-
-<!-- =====================================================
-     SEÇÃO 4 — RESULTADO FINAL
-===================================================== -->
-
-<section
-    id="resultado-final"
-    class="card hidden"
->
-
-    <div class="section-header">
-
-        <span class="section-icon">
-            📋
-        </span>
-
-        <div>
-
-            <h2>
-                Resultado do Seu Teste
-            </h2>
-
-            <p class="subtitulo">
-                Resultado estimado do simulador.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="placar-final"
-        class="placar-final"
-    ></div>
-
-
-    <div id="recomendacao"></div>
-
-
-    <div class="resultado-aviso">
-
-        ℹ️ Este resultado é apenas uma estimativa
-        baseada no desempenho neste teste.
-        Ele não substitui uma avaliação realizada
-        por um oftalmologista.
-
-    </div>
-
-
-    <button
-        type="button"
-        id="btn-reiniciar"
-    >
-        🔄 Fazer outro teste
-    </button>
-
-</section>
-
-
-
-<!-- =====================================================
-     SEÇÃO 5 — HISTÓRICO
-===================================================== -->
-
-<section
-    id="historico-section"
-    class="card hidden"
->
-
-    <div class="section-header">
-
-        <span class="section-icon">
-            📊
-        </span>
-
-        <div>
-
-            <h2>
-                Meus Testes
-            </h2>
-
-            <p class="subtitulo">
-                Histórico salvo neste navegador.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div id="lista-historico"></div>
-
-
-    <button
-        type="button"
-        id="btn-apagar-tudo"
-        class="btn-apagar-historico"
-    >
-        🗑️ Apagar histórico
-    </button>
-
-</section>
-
+    </section>
 
 </main>
 
 
-
 <script>
 
-/* =====================================================
-   DADOS DO TESTE
-===================================================== */
+    // =====================================================
+    // GERAR SEQUÊNCIAS ALEATÓRIAS
+    // =====================================================
 
-const linhasSnellen = [
+    function gerarSequencia(tamanho) {
 
-    "E",
+        const caracteres =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    "FP",
+        let resultado = "";
 
-    "TOZ",
+        for (let i = 0; i < tamanho; i++) {
 
-    "LPED",
+            const indice =
+                Math.floor(
+                    Math.random() * caracteres.length
+                );
 
-    "PECFD",
+            resultado += caracteres[indice];
+        }
 
-    "EDFCZP"
-
-];
-
-
-const escalasSnellen = [
-
-    "20/200",
-
-    "20/100",
-
-    "20/70",
-
-    "20/50",
-
-    "20/30",
-
-    "20/20"
-
-];
+        return resultado;
+    }
 
 
+    // =====================================================
+    // DADOS DO TESTE
+    // =====================================================
 
-/* =====================================================
-   ESTADO
-===================================================== */
-
-let passoAtual = 0;
-
-let ultimaLinhaCorreta = -1;
-
-
-
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const formSection =
-    document.getElementById("form-section");
-
-const resultadoSimulacao =
-    document.getElementById("resultado-simulacao");
-
-const testeSection =
-    document.getElementById("teste-section");
-
-const resultadoFinal =
-    document.getElementById("resultado-final");
-
-const historicoSection =
-    document.getElementById("historico-section");
-
-const nomeInput =
-    document.getElementById("nome");
-
-const idadeInput =
-    document.getElementById("idade");
-
-const respostaInput =
-    document.getElementById("resposta-letra");
-
-const menuInicio =
-    document.getElementById("menu-inicio");
-
-const menuHistorico =
-    document.getElementById("menu-historico");
-
-const menuTema =
-    document.getElementById("menu-tema");
+    let linhasSnellen = [
+        gerarSequencia(1),
+        gerarSequencia(2),
+        gerarSequencia(3),
+        gerarSequencia(4),
+        gerarSequencia(5),
+        gerarSequencia(6)
+    ];
 
 
+    const escalasSnellen = [
+        "20/200 (Muito Baixa)",
+        "20/100",
+        "20/70",
+        "20/50",
+        "20/30",
+        "20/20 (Visão Perfeita)"
+    ];
 
-/* =====================================================
-   ERROS
-===================================================== */
 
-let timerErro;
+    // =====================================================
+    // ESTADO
+    // =====================================================
+
+    let passoAtual = 0;
+
+    let ultimaLinhaCorreta = -1;
 
 
-function mostrarErro(mensagem) {
+    // =====================================================
+    // ELEMENTOS
+    // =====================================================
 
-    const caixa =
-        document.getElementById("error-message");
+    const formSection =
+        document.getElementById("form-section");
 
-    caixa.textContent = mensagem;
+    const resultadoSimulacao =
+        document.getElementById("resultado-simulacao");
 
-    caixa.classList.add("show");
+    const testeSection =
+        document.getElementById("teste-section");
 
-    clearTimeout(timerErro);
+    const resultadoFinal =
+        document.getElementById("resultado-final");
 
-    timerErro = setTimeout(
-        function() {
+    const nomeInput =
+        document.getElementById("nome");
+
+    const idadeInput =
+        document.getElementById("idade");
+
+    const respostaInput =
+        document.getElementById("resposta-letra");
+
+
+    // =====================================================
+    // ERROS
+    // =====================================================
+
+    let timerErro;
+
+    function mostrarErro(mensagem) {
+
+        const caixa =
+            document.getElementById("error-message");
+
+        caixa.textContent = mensagem;
+
+        caixa.classList.add("show");
+
+        clearTimeout(timerErro);
+
+        timerErro = setTimeout(() => {
 
             caixa.classList.remove("show");
 
-        },
-        5000
-    );
-
-}
-
-
-function limparErro() {
-
-    document
-        .getElementById("error-message")
-        .classList.remove("show");
-
-}
-
-
-
-/* =====================================================
-   INICIAR SIMULAÇÃO
-===================================================== */
-
-function iniciarSimulacao() {
-
-    limparErro();
-
-
-    const nome =
-        nomeInput.value.trim();
-
-
-    const idade =
-        Number.parseInt(
-            idadeInput.value,
-            10
-        );
-
-
-    if (!nome) {
-
-        mostrarErro(
-            "❌ Digite seu nome."
-        );
-
-        nomeInput.focus();
-
-        return;
+        }, 5000);
     }
 
 
-    if (
-        !Number.isInteger(idade) ||
-        idade < 1 ||
-        idade > 120
-    ) {
+    function limparErro() {
 
-        mostrarErro(
-            "❌ Digite uma idade válida entre 1 e 120 anos."
-        );
-
-        idadeInput.focus();
-
-        return;
+        document
+            .getElementById("error-message")
+            .classList.remove("show");
     }
 
 
-    gerarTabelaProgressao(
-        nome,
-        idade
-    );
+    // =====================================================
+    // INICIAR SIMULAÇÃO
+    // =====================================================
 
+    function iniciarSimulacao() {
 
-    formSection.classList.add("hidden");
+        limparErro();
 
-    resultadoSimulacao.classList.remove("hidden");
+        const nome =
+            nomeInput.value.trim();
 
-    historicoSection.classList.add("hidden");
-
-    menuInicio.classList.add("ativo");
-
-    menuHistorico.classList.remove("ativo");
-
-}
-
-
-
-/* =====================================================
-   GERAR TABELA
-===================================================== */
-
-function gerarTabelaProgressao(
-    nome,
-    idadeAtual
-) {
-
-    document
-        .getElementById("boas-vindas")
-        .textContent =
-        `Olá, ${nome}. Esta é uma projeção educativa baseada na idade informada.`;
-
-
-    const tbody =
-        document.querySelector(
-            "#tabela-anos tbody"
-        );
-
-
-    tbody.innerHTML = "";
-
-
-    const limiteIdade =
-        Math.max(
-            80,
-            idadeAtual + 20
-        );
-
-
-    for (
-        let idade = 20;
-        idade <= limiteIdade;
-        idade += 10
-    ) {
-
-        let eficiencia = 100;
-
-
-        let status =
-            "Visão excelente no modelo";
-
-
-        if (idade > 20) {
-
-            if (idade <= 40) {
-
-                eficiencia -=
-                    (idade - 20) * 0.15;
-
-            }
-
-            else if (idade <= 60) {
-
-                eficiencia -=
-                    (20 * 0.15) +
-                    (idade - 40) * 0.45;
-
-            }
-
-            else {
-
-                eficiencia -=
-                    (20 * 0.15) +
-                    (20 * 0.45) +
-                    (idade - 60) * 0.85;
-
-            }
-
-        }
-
-
-        eficiencia =
-            Math.max(
-                0,
-                eficiencia
+        const idade =
+            Number.parseInt(
+                idadeInput.value,
+                10
             );
 
 
-        if (eficiencia < 60) {
+        if (!nome) {
 
-            status =
-                "Baixa eficiência no modelo";
+            mostrarErro(
+                "❌ Por favor, digite seu nome."
+            );
 
+            nomeInput.focus();
+
+            return;
         }
-
-        else if (eficiencia < 80) {
-
-            status =
-                "Necessidade de avaliação visual";
-
-        }
-
-        else if (eficiencia < 95) {
-
-            status =
-                "Possível fadiga visual";
-
-        }
-
-
-        const tr =
-            document.createElement("tr");
 
 
         if (
-            idadeAtual >= idade &&
-            idadeAtual < idade + 10
+            !Number.isInteger(idade) ||
+            idade < 1 ||
+            idade > 120
         ) {
 
-            tr.classList.add(
-                "linha-atual"
+            mostrarErro(
+                "❌ Digite uma idade válida entre 1 e 120 anos."
             );
 
-            status +=
-                " ← Faixa atual";
+            idadeInput.focus();
 
+            return;
         }
 
 
-        const tdIdade =
-            document.createElement("td");
-
-        tdIdade.textContent =
-            `${idade} anos`;
-
-
-        const tdEficiencia =
-            document.createElement("td");
-
-        tdEficiencia.textContent =
-            `${eficiencia.toFixed(1)}%`;
-
-
-        const tdStatus =
-            document.createElement("td");
-
-        tdStatus.textContent =
-            status;
-
-
-        tr.appendChild(tdIdade);
-
-        tr.appendChild(tdEficiencia);
-
-        tr.appendChild(tdStatus);
-
-
-        tbody.appendChild(tr);
-
-    }
-
-}
-
-
-
-/* =====================================================
-   MOSTRAR TESTE
-===================================================== */
-
-function mostrarTeste() {
-
-    resultadoSimulacao.classList.add("hidden");
-
-    formSection.classList.add("hidden");
-
-    historicoSection.classList.add("hidden");
-
-    resultadoFinal.classList.add("hidden");
-
-    testeSection.classList.remove("hidden");
-
-
-    passoAtual = 0;
-
-    ultimaLinhaCorreta = -1;
-
-
-    document
-        .getElementById("progress-fill")
-        .style.width = "0%";
-
-
-    proximaLinha();
-
-}
-
-
-
-/* =====================================================
-   PRÓXIMA LINHA
-===================================================== */
-
-function proximaLinha() {
-
-    if (
-        passoAtual >=
-        linhasSnellen.length
-    ) {
-
-        finalizarTeste();
-
-        return;
-    }
-
-
-    const progresso =
-        (
-            passoAtual /
-            linhasSnellen.length
-        ) * 100;
-
-
-    document
-        .getElementById("progress-fill")
-        .style.width =
-        `${progresso}%`;
-
-
-    document
-        .getElementById("progress-text")
-        .textContent =
-        `Linha ${passoAtual + 1} de ${linhasSnellen.length}`;
-
-
-    const letra =
-        document.getElementById(
-            "letra-teste"
-        );
-
-
-    letra.textContent =
-        linhasSnellen[passoAtual];
-
-
-    letra.className =
-        `tamanho-linha-${passoAtual}`;
-
-
-    respostaInput.value = "";
-
-    respostaInput.focus();
-
-}
-
-
-
-/* =====================================================
-   NORMALIZAR RESPOSTA
-===================================================== */
-
-function normalizarResposta(texto) {
-
-    return texto
-        .toUpperCase()
-        .trim()
-        .replace(/\s+/g, "");
-
-}
-
-
-
-/* =====================================================
-   VERIFICAR RESPOSTA
-===================================================== */
-
-function verificarResposta() {
-
-    const resposta =
-        normalizarResposta(
-            respostaInput.value
-        );
-
-
-    if (!resposta) {
-
-        finalizarTeste();
-
-        return;
-
-    }
-
-
-    const correta =
-        normalizarResposta(
-            linhasSnellen[passoAtual]
-        );
-
-
-    if (resposta === correta) {
-
-        ultimaLinhaCorreta =
-            passoAtual;
-
-        passoAtual++;
-
-        proximaLinha();
-
-        return;
-
-    }
-
-
-    finalizarTeste();
-
-}
-
-
-
-/* =====================================================
-   FINALIZAR TESTE
-===================================================== */
-
-function finalizarTeste() {
-
-    testeSection.classList.add("hidden");
-
-    resultadoFinal.classList.remove("hidden");
-
-
-    const indice =
-        Math.max(
-            0,
-            ultimaLinhaCorreta
-        );
-
-
-    const resultado =
-        escalasSnellen[indice];
-
-
-    salvarTeste();
-
-
-    const placar =
-        document.getElementById(
-            "placar-final"
-        );
-
-
-    placar.innerHTML = `
-
-        <div class="resultado-icone">
-            👁️
-        </div>
-
-        <div class="resultado-label">
-            Acuidade estimada
-        </div>
-
-        <div class="destaque">
-            ${resultado}
-        </div>
-
-        <div class="resultado-linhas">
-            ${Math.max(0, ultimaLinhaCorreta + 1)}
-            de ${linhasSnellen.length}
-            linhas identificadas
-        </div>
-
-    `;
-
-
-    const recomendacao =
-        document.getElementById(
-            "recomendacao"
-        );
-
-
-    recomendacao.innerHTML = "";
-
-
-    const icone =
-        document.createElement("span");
-
-
-    icone.className =
-        "alert-icon";
-
-
-    const texto =
-        document.createElement("span");
-
-
-    if (indice < 3) {
-
-        icone.textContent =
-            "⚠️";
-
-
-        texto.textContent =
-            "Seu desempenho neste teste rápido pode indicar dificuldade para identificar letras menores. Considere realizar uma avaliação com um oftalmologista.";
-
-
-        recomendacao.classList.add(
-            "alerta-ruim"
-        );
-
-
-        recomendacao.classList.remove(
-            "alerta-bom"
-        );
-
-    }
-
-    else {
-
-        icone.textContent =
-            "✅";
-
-
-        texto.textContent =
-            "Seu desempenho neste teste rápido foi satisfatório. Mesmo assim, o teste não substitui uma avaliação oftalmológica profissional.";
-
-
-        recomendacao.classList.add(
-            "alerta-bom"
-        );
-
-
-        recomendacao.classList.remove(
-            "alerta-ruim"
-        );
-
-    }
-
-
-    recomendacao.appendChild(icone);
-
-    recomendacao.appendChild(texto);
-
-}
-
-
-
-/* =====================================================
-   SALVAR TESTE
-===================================================== */
-
-function salvarTeste() {
-
-    const nome =
-        nomeInput.value.trim();
-
-
-    const idade =
-        idadeInput.value;
-
-
-    const indice =
-        Math.max(
-            0,
-            ultimaLinhaCorreta
-        );
-
-
-    const resultado =
-        escalasSnellen[indice];
-
-
-    const testes =
-        JSON.parse(
-            localStorage.getItem(
-                "testesVisuais"
-            ) || "[]"
-        );
-
-
-    const novoTeste = {
-
-        nome:
+        gerarTabelaProgressao(
             nome,
-
-        idade:
-            idade,
-
-        resultado:
-            resultado,
-
-        linhasAcertadas:
-            Math.max(
-                0,
-                ultimaLinhaCorreta + 1
-            ),
-
-        data:
-            new Date().toLocaleString(
-                "pt-BR"
-            )
-
-    };
-
-
-    testes.unshift(
-        novoTeste
-    );
-
-
-    localStorage.setItem(
-        "testesVisuais",
-        JSON.stringify(testes)
-    );
-
-}
-
-
-
-/* =====================================================
-   MOSTRAR HISTÓRICO
-===================================================== */
-
-function mostrarHistorico() {
-
-    const lista =
-        document.getElementById(
-            "lista-historico"
+            idade
         );
 
-
-    const testes =
-        JSON.parse(
-            localStorage.getItem(
-                "testesVisuais"
-            ) || "[]"
-        );
-
-
-    lista.innerHTML = "";
-
-
-    if (testes.length === 0) {
-
-        lista.innerHTML = `
-
-            <div class="historico-vazio">
-
-                <div class="icone">
-                    👁️
-                </div>
-
-                <strong>
-                    Nenhum teste realizado ainda.
-                </strong>
-
-                <p>
-                    Faça seu primeiro teste
-                    para vê-lo aparecer aqui.
-                </p>
-
-            </div>
-
-        `;
-
-
-        document
-            .getElementById(
-                "btn-apagar-tudo"
-            )
-            .classList.add("hidden");
-
-
-        return;
-
-    }
-
-
-    document
-        .getElementById(
-            "btn-apagar-tudo"
-        )
-        .classList.remove("hidden");
-
-
-    testes.forEach(
-        function(teste) {
-
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-
-            div.className =
-                "teste-historico";
-
-
-            div.innerHTML = `
-
-                <div class="teste-data">
-                    📅 ${teste.data}
-                </div>
-
-                <div class="teste-resultado">
-                    👁️ ${teste.resultado}
-                </div>
-
-                <div class="teste-info">
-
-                    👤 ${escapeHTML(teste.nome)}
-
-                    <span>•</span>
-
-                    🎂 ${teste.idade} anos
-
-                    <span>•</span>
-
-                    ✅ ${teste.linhasAcertadas}/6 linhas
-
-                </div>
-
-            `;
-
-
-            lista.appendChild(
-                div
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =====================================================
-   PROTEÇÃO DE TEXTO
-===================================================== */
-
-function escapeHTML(texto) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-
-    div.textContent =
-        texto;
-
-
-    return div.innerHTML;
-
-}
-
-
-
-/* =====================================================
-   REINICIAR
-===================================================== */
-
-function reiniciar() {
-
-    resultadoFinal.classList.add("hidden");
-
-    testeSection.classList.add("hidden");
-
-    resultadoSimulacao.classList.add("hidden");
-
-    historicoSection.classList.add("hidden");
-
-    formSection.classList.remove("hidden");
-
-
-    nomeInput.value = "";
-
-    idadeInput.value = "";
-
-    respostaInput.value = "";
-
-
-    passoAtual = 0;
-
-    ultimaLinhaCorreta = -1;
-
-
-    document
-        .getElementById("progress-fill")
-        .style.width = "0%";
-
-
-    document
-        .getElementById("progress-text")
-        .textContent =
-        "Linha 1 de 6";
-
-
-    limparErro();
-
-
-    menuInicio.classList.add("ativo");
-
-    menuHistorico.classList.remove("ativo");
-
-
-    nomeInput.focus();
-
-}
-
-
-
-/* =====================================================
-   MENU — INÍCIO
-===================================================== */
-
-menuInicio.addEventListener(
-    "click",
-    function() {
-
-        historicoSection.classList.add("hidden");
-
-        resultadoSimulacao.classList.add("hidden");
-
-        testeSection.classList.add("hidden");
-
-        resultadoFinal.classList.add("hidden");
-
-        formSection.classList.remove("hidden");
-
-
-        menuInicio.classList.add("ativo");
-
-        menuHistorico.classList.remove("ativo");
-
-    }
-);
-
-
-
-/* =====================================================
-   MENU — HISTÓRICO
-===================================================== */
-
-menuHistorico.addEventListener(
-    "click",
-    function() {
 
         formSection.classList.add("hidden");
 
-        resultadoSimulacao.classList.add("hidden");
-
-        testeSection.classList.add("hidden");
-
-        resultadoFinal.classList.add("hidden");
-
-        historicoSection.classList.remove("hidden");
-
-
-        menuHistorico.classList.add("ativo");
-
-        menuInicio.classList.remove("ativo");
-
-
-        mostrarHistorico();
-
-    }
-);
-
-
-
-/* =====================================================
-   MODO ESCURO
-===================================================== */
-
-function atualizarTema() {
-
-    const escuro =
-        localStorage.getItem(
-            "modoEscuro"
-        ) === "true";
-
-
-    if (escuro) {
-
-        document.body.classList.add(
-            "dark-mode"
-        );
-
-
-        menuTema.textContent =
-            "☀️ Claro";
-
+        resultadoSimulacao
+            .classList.remove("hidden");
     }
 
-    else {
 
-        document.body.classList.remove(
-            "dark-mode"
-        );
+    // =====================================================
+    // GERAR TABELA
+    // =====================================================
+
+    function gerarTabelaProgressao(
+        nome,
+        idadeAtual
+    ) {
+
+        document
+            .getElementById("boas-vindas")
+            .textContent =
+            `Olá, ${nome}. Veja a projeção da sua capacidade visual ao longo dos anos:`;
 
 
-        menuTema.textContent =
-            "🌙 Escuro";
+        const tbody =
+            document.querySelector(
+                "#tabela-anos tbody"
+            );
 
-    }
-
-}
+        tbody.innerHTML = "";
 
 
-menuTema.addEventListener(
-    "click",
-    function() {
-
-        const escuro =
-            document.body.classList.contains(
-                "dark-mode"
+        const limiteIdade =
+            Math.max(
+                80,
+                idadeAtual + 20
             );
 
 
-        localStorage.setItem(
-            "modoEscuro",
-            String(!escuro)
-        );
+        for (
+            let idade = 20;
+            idade <= limiteIdade;
+            idade += 10
+        ) {
+
+            let eficiencia = 100;
+
+            let status =
+                "Visão Excelente";
 
 
-        atualizarTema();
+            if (idade > 20) {
 
-    }
-);
+                if (idade <= 40) {
 
+                    eficiencia -=
+                        (idade - 20) * 0.15;
 
+                } else if (idade <= 60) {
 
-/* =====================================================
-   APAGAR HISTÓRICO
-===================================================== */
+                    eficiencia -=
+                        (20 * 0.15) +
+                        (idade - 40) * 0.45;
 
-document
-    .getElementById(
-        "btn-apagar-tudo"
-    )
-    .addEventListener(
-        "click",
-        function() {
+                } else {
 
-            const confirmar =
-                confirm(
-                    "Tem certeza que deseja apagar todo o histórico?"
-                );
-
-
-            if (!confirmar) {
-                return;
+                    eficiencia -=
+                        (20 * 0.15) +
+                        (20 * 0.45) +
+                        (idade - 60) * 0.85;
+                }
             }
 
 
-            localStorage.removeItem(
-                "testesVisuais"
+            eficiencia =
+                Math.max(
+                    0,
+                    eficiencia
+                );
+
+
+            if (eficiencia < 60) {
+
+                status =
+                    "Baixa eficiência no modelo";
+
+            } else if (eficiencia < 80) {
+
+                status =
+                    "Possível necessidade de avaliação visual";
+
+            } else if (eficiencia < 95) {
+
+                status =
+                    "Possível fadiga visual";
+            }
+
+
+            const tr =
+                document.createElement("tr");
+
+
+            if (
+                idadeAtual >= idade &&
+                idadeAtual < idade + 10
+            ) {
+
+                tr.classList.add(
+                    "linha-atual"
+                );
+
+                status +=
+                    " ← Sua faixa atual";
+            }
+
+
+            const tdIdade =
+                document.createElement("td");
+
+            tdIdade.textContent =
+                `${idade} anos`;
+
+
+            const tdEficiencia =
+                document.createElement("td");
+
+            tdEficiencia.textContent =
+                `${eficiencia.toFixed(1)}%`;
+
+
+            const tdStatus =
+                document.createElement("td");
+
+            tdStatus.textContent =
+                status;
+
+
+            tr.appendChild(tdIdade);
+            tr.appendChild(tdEficiencia);
+            tr.appendChild(tdStatus);
+
+            tbody.appendChild(tr);
+        }
+    }
+
+
+    // =====================================================
+    // MOSTRAR TESTE
+    // =====================================================
+
+    function mostrarTeste() {
+
+        // Gera novas perguntas a cada novo teste
+
+        linhasSnellen[0] = gerarSequencia(1);
+        linhasSnellen[1] = gerarSequencia(2);
+        linhasSnellen[2] = gerarSequencia(3);
+        linhasSnellen[3] = gerarSequencia(4);
+        linhasSnellen[4] = gerarSequencia(5);
+        linhasSnellen[5] = gerarSequencia(6);
+
+
+        resultadoSimulacao
+            .classList.add("hidden");
+
+        testeSection
+            .classList.remove("hidden");
+
+
+        passoAtual = 0;
+
+        ultimaLinhaCorreta = -1;
+
+
+        document
+            .getElementById("progress-fill")
+            .style.width = "0%";
+
+
+        proximaLinha();
+    }
+
+
+    // =====================================================
+    // PRÓXIMA LINHA
+    // =====================================================
+
+    function proximaLinha() {
+
+        if (
+            passoAtual >=
+            linhasSnellen.length
+        ) {
+
+            finalizarTeste();
+
+            return;
+        }
+
+
+        const progresso =
+            (passoAtual /
+                linhasSnellen.length) * 100;
+
+
+        document
+            .getElementById("progress-fill")
+            .style.width =
+            `${progresso}%`;
+
+
+        document
+            .getElementById("progress-text")
+            .textContent =
+            `Linha ${passoAtual + 1} de ${linhasSnellen.length}`;
+
+
+        const letra =
+            document.getElementById(
+                "letra-teste"
             );
 
 
-            mostrarHistorico();
-
-        }
-    );
+        letra.textContent =
+            linhasSnellen[passoAtual];
 
 
-
-/* =====================================================
-   BOTÕES PRINCIPAIS
-===================================================== */
-
-document
-    .getElementById("btn-simular")
-    .addEventListener(
-        "click",
-        iniciarSimulacao
-    );
+        letra.className =
+            `tamanho-linha-${passoAtual}`;
 
 
-document
-    .getElementById("btn-teste")
-    .addEventListener(
-        "click",
-        mostrarTeste
-    );
+        respostaInput.value = "";
 
-
-document
-    .getElementById("btn-responder")
-    .addEventListener(
-        "click",
-        verificarResposta
-    );
-
-
-document
-    .getElementById("btn-reiniciar")
-    .addEventListener(
-        "click",
-        reiniciar
-    );
-
-
-
-/* =====================================================
-   ENTER — NOME
-===================================================== */
-
-nomeInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
-
-            iniciarSimulacao();
-
-        }
-
+        respostaInput.focus();
     }
-);
 
 
+    // =====================================================
+    // NORMALIZAR RESPOSTA
+    // =====================================================
 
-/* =====================================================
-   ENTER — IDADE
-===================================================== */
+    function normalizarResposta(texto) {
 
-idadeInput.addEventListener(
-    "keydown",
-    function(event) {
+        return texto
+            .toUpperCase()
+            .trim()
+            .replace(/\s+/g, "");
+    }
 
-        if (event.key === "Enter") {
 
-            event.preventDefault();
+    // =====================================================
+    // VERIFICAR RESPOSTA
+    // =====================================================
 
-            iniciarSimulacao();
+    function verificarResposta() {
 
+        const resposta =
+            normalizarResposta(
+                respostaInput.value
+            );
+
+
+        if (!resposta) {
+
+            finalizarTeste();
+
+            return;
         }
 
-    }
-);
+
+        const correta =
+            normalizarResposta(
+                linhasSnellen[passoAtual]
+            );
 
 
+        if (resposta === correta) {
 
-/* =====================================================
-   ENTER — RESPOSTA
-===================================================== */
+            ultimaLinhaCorreta =
+                passoAtual;
 
-respostaInput.addEventListener(
-    "keydown",
-    function(event) {
+            passoAtual++;
 
-        if (event.key === "Enter") {
+            proximaLinha();
 
-            event.preventDefault();
-
-            verificarResposta();
-
+            return;
         }
 
+
+        finalizarTeste();
     }
-);
 
 
+    // =====================================================
+    // FINALIZAR TESTE
+    // =====================================================
 
-/* =====================================================
-   CARREGAR TEMA SALVO
-===================================================== */
+    function finalizarTeste() {
 
-atualizarTema();
+        testeSection
+            .classList.add("hidden");
+
+        resultadoFinal
+            .classList.remove("hidden");
+
+
+        const indice =
+            Math.max(
+                0,
+                ultimaLinhaCorreta
+            );
+
+
+        const resultado =
+            escalasSnellen[indice];
+
+
+        const placar =
+            document.getElementById(
+                "placar-final"
+            );
+
+
+        placar.innerHTML = `
+            <h3>
+                <span class="alert-icon">👁️</span>
+                <span>Sua acuidade estimada:</span>
+                <span class="destaque">${resultado}</span>
+            </h3>
+        `;
+
+
+        const recomendacao =
+            document.getElementById(
+                "recomendacao"
+            );
+
+
+        recomendacao.innerHTML = "";
+
+
+        const icone =
+            document.createElement("span");
+
+        icone.className =
+            "alert-icon";
+
+
+        const texto =
+            document.createElement("span");
+
+
+        if (indice < 3) {
+
+            icone.textContent = "⚠️";
+
+            texto.textContent =
+                "Seu desempenho neste teste rápido pode indicar dificuldade para identificar letras menores. Recomenda-se uma avaliação com um oftalmologista. Este teste não substitui um exame profissional.";
+
+            recomendacao.classList.add(
+                "alerta-ruim"
+            );
+
+            recomendacao.classList.remove(
+                "alerta-bom"
+            );
+
+        } else {
+
+            icone.textContent = "✅";
+
+            texto.textContent =
+                "Seu desempenho neste teste rápido foi satisfatório. Mesmo assim, este teste não substitui uma avaliação oftalmológica profissional.";
+
+            recomendacao.classList.add(
+                "alerta-bom"
+            );
+
+            recomendacao.classList.remove(
+                "alerta-ruim"
+            );
+        }
+
+
+        recomendacao.appendChild(icone);
+
+        recomendacao.appendChild(texto);
+    }
+
+
+    // =====================================================
+    // REINICIAR
+    // =====================================================
+
+    function reiniciar() {
+
+        resultadoFinal
+            .classList.add("hidden");
+
+        formSection
+            .classList.remove("hidden");
+
+
+        nomeInput.value = "";
+
+        idadeInput.value = "";
+
+        respostaInput.value = "";
+
+
+        passoAtual = 0;
+
+        ultimaLinhaCorreta = -1;
+
+
+        document
+            .getElementById("progress-fill")
+            .style.width = "0%";
+
+
+        document
+            .getElementById("progress-text")
+            .textContent =
+            "Linha 1 de 6";
+
+
+        limparErro();
+
+        nomeInput.focus();
+    }
+
+
+    // =====================================================
+    // EVENTOS DOS BOTÕES
+    // =====================================================
+
+    document
+        .getElementById("btn-simular")
+        .addEventListener(
+            "click",
+            iniciarSimulacao
+        );
+
+
+    document
+        .getElementById("btn-teste")
+        .addEventListener(
+            "click",
+            mostrarTeste
+        );
+
+
+    document
+        .getElementById("btn-responder")
+        .addEventListener(
+            "click",
+            verificarResposta
+        );
+
+
+    document
+        .getElementById("btn-reiniciar")
+        .addEventListener(
+            "click",
+            reiniciar
+        );
+
+
+    // =====================================================
+    // ENTER
+    // =====================================================
+
+    nomeInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+                iniciarSimulacao();
+            }
+
+        }
+    );
+
+
+    idadeInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+                iniciarSimulacao();
+            }
+
+        }
+    );
+
+
+    respostaInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+                verificarResposta();
+            }
+
+        }
+    );
 
 </script>
 
 </body>
-   </html>
+</html>
